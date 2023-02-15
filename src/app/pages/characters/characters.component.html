@@ -1,1 +1,14 @@
-<p>hola</p>
+<div class="characters">
+<a class="characters" 
+    *ngFor="let character of characters"
+    routerLink="/characters/{{character.id}}">
+    <h3>{{character.name}}</h3>
+    <img [src]="character.image" alt="character.name">
+    <p>{{character.status}}</p>
+    <p>{{character.species}}</p>
+    <p>{{ character.type}}</p>
+    <p>{{character.gender}}</p>
+
+</a>
+
+</div>
