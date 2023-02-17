@@ -1,15 +1,27 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterDetailsModule } from './pages/character-details/character-details.module';
+
 
 const routes: Routes = [
+  {
+    path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
+  },
   {
     path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
     path:'character', loadChildren: () => import('./pages/characters/characters.module').then(m => m.CharactersModule)
   },
+  {
+    path:'characters/:id', loadChildren: () => import('./pages/character-details/character-details.module').then(m => m.CharacterDetailsModule)
+  },
+  {
+    path:'**', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
+  },
+
+
+  
   
   
 ];
