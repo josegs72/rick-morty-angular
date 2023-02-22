@@ -1,4 +1,5 @@
-/*export interface ApiCharacters {
+export interface ApiCharacters
+{
     id?: number;
     name : string;
     status : string;
@@ -19,4 +20,3 @@
     created : string;
 
 };
-*/

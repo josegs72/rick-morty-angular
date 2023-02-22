@@ -1,12 +1,14 @@
+
 <div class="characters" *ngFor="let character of characters">
     <a class="characters">
         <h3>{{character.name}}</h3>
         <img [src]="character.image" alt="character.name" routerLink="/characters/{{character.id}}">
         <p>{{character.status}}</p>
        
-
+   
 
     </a>
 
 
 </div>
+

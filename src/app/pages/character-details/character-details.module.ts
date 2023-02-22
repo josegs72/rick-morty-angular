@@ -16,9 +16,7 @@ import { CharacterDetailsRoutingModule } from './character-details-routing.modul
     RouterModule,
    
   ],
-  exports: [
-    CharacterDetailsComponent
-  ]
+
 
 })
 export class CharacterDetailsModule { }

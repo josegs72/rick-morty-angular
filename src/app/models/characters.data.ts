@@ -1,6 +1,6 @@
-import { Icharacters } from "./icharacters";
+/*import { ApiIcharacters } from "./icharacters";
 
-export const characters: Icharacters[]= [
+export const characters: ApiIcharacters[]= [
     {   "id": 1,
     "name": "Rick Sanchez",
     "status": "Alive",

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Icharacters } from 'src/app/models/icharacters';
-
+import { ApiCharacters } from 'src/app/core/services/products/api/api-characters.models';
+import { ApiService } from 'src/app/core/services/products/api/api-characters.service';
 import { ActivatedRoute } from '@angular/router';
 
-import { characters } from 'src/app/models/characters.data';
+//import { characters } from 'src/app/models/characters.data';
 
 @Component({
   selector: 'app-character-details',
@@ -11,13 +11,23 @@ import { characters } from 'src/app/models/characters.data';
   styleUrls: ['./character-details.component.scss'],
 })
 export class CharacterDetailsComponent {
-  public id!: any;
-  public character?: Icharacters;
+  public character?: ApiCharacters;
 
-  constructor(public route: ActivatedRoute) {
-    this.route.paramMap.subscribe((params) => (this.id = params.get('id')));
-    this.id = parseInt(this.id);
-    this.character = this.characters.find((person) => person.id === this.id);
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    public ApiService: ApiService
+  ) {
+    this.activatedRoute.queryParams.subscribe((queryParams) => {
+      console.log(queryParams);
+    });
   }
-  public characters: Icharacters[] = characters;
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      this.ApiService.getApiCharacters().subscribe((character) => {
+        this.character = character.find((c) => c.id == params['id']);
+        console.log(this.character);
+      });
+    });
+  }
 }

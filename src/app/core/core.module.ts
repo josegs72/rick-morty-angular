@@ -1,3 +1,4 @@
+import { LoadingComponent } from './components/loading/loading.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FooterComponent,
     HeaderComponent,
     NavbarComponent,
+    LoadingComponent
   
   ],
   imports: [
@@ -21,6 +23,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FooterComponent,
     HeaderComponent,
     NavbarComponent,
+    LoadingComponent
    
   ],
 })
