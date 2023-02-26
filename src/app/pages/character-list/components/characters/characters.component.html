@@ -1,0 +1,19 @@
+
+<div
+    *ngIf="characters"
+    class="character-list"
+>
+    <img class="characters__image" [src]="characters.image" alt="character.name" routerLink="/characters-detail/{{characters.id}}">
+    <div class="characters__info">
+        <h3 class="characters__name">{{ characters.name }}</h3>
+       
+        <p class="characters__status">{{ characters.status }}</p>
+        <button
+        (click)="navigateToDetail()"
+        class="character__button"
+    >Ver más</button>
+
+    </div>
+</div>
+
+   

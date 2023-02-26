@@ -1,0 +1,12 @@
+<div>
+    <input  placeholder="Buscar personaje" [(ngModel)]="characterName" />
+</div>
+
+<p>Listado personajes</p>
+
+
+
+
+<div *ngIf="characters$" class="character-list">
+    <app-character *ngFor="let characterEl of characters$ | async | filter:characterName" [characters]="characterEl"></app-character>
+</div>
