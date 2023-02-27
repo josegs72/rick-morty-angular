@@ -1,5 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable , switchMap} from 'rxjs';
 
 import { Person } from 'src/app/core/services/products/character.models';
 import {CharactersService} from 'src/app/core/services/products/character.service';
@@ -12,12 +13,23 @@ import {CharactersService} from 'src/app/core/services/products/character.servic
 export class CharacterListComponent implements OnInit {
   public characters$?: Observable<Person[]>;
   public characterName: string = '';
+  public pages: number = 1;
 
 
   constructor(private charactersService: CharactersService ) { }
 
   public ngOnInit(): void {
     this.characters$= this.charactersService.getCharacters();
+  }
+
+  public removeCharacterFromList(id?: string) {
+    if (!id) { return; }
+    this.characters$ = this.charactersService.deleteCharacter(id).pipe(
+      
+      switchMap(() => {
+        return this.charactersService.getCharacters();
+      })
+    );
   }
 
 }

@@ -13,11 +13,21 @@ import { ApiCharacters} from 'src/app/core/services/products/api/api-characters.
 export class CharactersComponent {
 
   @Input() public characters?: Person;
+  @Output() public onRemove: EventEmitter<void> = new EventEmitter<void>();
   
 
   constructor(private router: Router) {}
 
- 
+  public removeCharacter() {
+    this.onRemove.emit();
+  }
+
+  /*public editCharacter() {
+    this.router.navigate(['create-character'], { queryParams: {
+      id: this.characters?.id
+    }});
+  }
+  */
 
 
 

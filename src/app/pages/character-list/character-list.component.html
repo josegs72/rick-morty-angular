@@ -1,12 +1,20 @@
-<div>
-    <input  placeholder="Buscar personaje" [(ngModel)]="characterName" />
+<div class="buscador">
+    <input class="input-buscador" placeholder="Buscar personaje" [(ngModel)]="characterName" />
+
+
+
+</div>
+<div class="pagination__container">
+    <pagination-controls class="pagination" (pageChange)="pages = $event"></pagination-controls>
 </div>
 
-<p>Listado personajes</p>
 
 
 
 
 <div *ngIf="characters$" class="character-list">
-    <app-character *ngFor="let characterEl of characters$ | async | filter:characterName" [characters]="characterEl"></app-character>
+
+    <app-character
+        *ngFor="let characterEl of characters$ | async | filter:characterName | paginate: {itemsPerPage: 15, currentPage: pages } "
+        [characters]="characterEl" ></app-character>
 </div>

@@ -1,10 +1,10 @@
-<div *ngIf="character; else characterNotFound ">
-    <h3>Name: {{ character.name }}</h3>
-    <img [src]="character.image" alt="character.name">
+<div class="details"*ngIf="character; else characterNotFound ">
+    <h3 class="details__name ">Nombre: {{ character.name }}</h3>
+    <img class="ïmagen-detail" [src]="character.image" alt="character.name">
 
-    <p>Status: {{ character.status }}</p>
-    <p>Species: {{ character.species }}</p>
-    <p>Genero: {{ character.gender }}</p>
+    <h4>Status: {{ character.status }}</h4>
+    <h4>Species: {{ character.species }}</h4>
+    <h4>Genero: {{ character.gender }}</h4>
     
     
 

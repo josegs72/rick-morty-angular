@@ -7,6 +7,8 @@ import { CharacterListComponent } from './character-list.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import {  NgxPaginationModule } from 'ngx-pagination';
+
 
 
 
@@ -14,6 +16,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     CharacterListComponent,
     CharactersComponent,
+    
    
     
   ],
@@ -22,7 +25,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CharacterListRoutingModule,
     RouterModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule,
+
   ]
 })
 export class CharacterListModule { }

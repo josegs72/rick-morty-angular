@@ -1,8 +1,7 @@
 import { CharactersService } from './../../core/services/products/character.service';
 import { Person } from './../../core/services/products/character.models';
 import { Component,OnInit} from '@angular/core';
-import { ApiCharacters } from 'src/app/core/services/products/api/api-characters.models';
-import { ApiService } from 'src/app/core/services/products/api/api-characters.service';
+
 import { ActivatedRoute } from '@angular/router';
 
 //import { characters } from 'src/app/models/characters.data';

@@ -1,9 +1,19 @@
 <nav>
-    <ul>
-        <li><a routerLink="/home" >Home</a></li>
-        <li><a routerLink="/character">Personajes</a></li>
-  
+    <div class="cabecera">
+    <ul class="cabecera-ul">
+        <li class="cabecera-li">
+            <a class="header__link" [routerLink]="['home']">Home</a>
+
+        </li>
+
+        <li class="cabecera-li">
+            <a class="header__link" [routerLink]="['character-list']">Personajes</a>
+        </li>
+        <li class="cabecera-li"> 
+            <a class="header__link" [routerLink]="['create-character']">Nuevo personaje</a>
+        </li>
+
 
     </ul>
+</div>
 </nav>
-

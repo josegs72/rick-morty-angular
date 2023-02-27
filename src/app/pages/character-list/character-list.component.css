@@ -1,0 +1,10 @@
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: -15px;
+  margin-left: -15px;
+  padding: 0;
+  list-style: none;
+  gap: 40px;
+}/*# sourceMappingURL=character-list.component.css.map */

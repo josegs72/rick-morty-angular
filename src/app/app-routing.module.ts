@@ -11,15 +11,18 @@ const routes: Routes = [
     path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
-    path:'character', loadChildren: () => import('./pages/characters/characters.module').then(m => m.CharactersModule)
+    path:'character-list', loadChildren: () => import('./pages/character-list/character-list.module').then(m => m.CharacterListModule)
   },
   {
-    path:'characters/:id', loadChildren: () => import('./pages/character-details/character-details.module').then(m => m.CharacterDetailsModule)
+    path:'characters-detail/:id', loadChildren: () => import('./pages/character-details/character-details.module').then(m => m.CharacterDetailsModule)
+  },
+ 
+{
+  path: 'create-character',loadChildren: () => import('./pages/create-character/create-character.module').then(m => m.CreateCharacterModule)
   },
   {
     path:'**', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
   },
-
 
   
   
