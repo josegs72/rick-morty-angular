@@ -22,16 +22,7 @@ export class CharacterListComponent implements OnInit {
     this.characters$= this.charactersService.getCharacters();
   }
 
-  public removeCharacterFromList(id?: string) {
-    if (!id) { return; }
-    this.characters$ = this.charactersService.deleteCharacter(id).pipe(
-      
-      switchMap(() => {
-        return this.charactersService.getCharacters();
-      })
-    );
-  }
-
+  
 }
 
 

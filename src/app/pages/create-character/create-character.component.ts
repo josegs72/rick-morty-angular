@@ -75,20 +75,4 @@ export class CreateCharacterComponent /*implements OnInit*/ {
     });
   }
 
-  public createNewProduct() {
-    if (!this.productForm?.valid) {
-      return;
-    }
-    const productRequest =
-      this.canEdit && this.characterId
-        ? this.characterService.editCharacter(
-            this.characterId,
-            this.productForm?.value
-          )
-        : this.characterService.createCharacter(this.productForm?.value);
-    productRequest.subscribe(() => {
-      this.productForm?.reset();
-      this.router.navigate(['character']);
-    });
-  }
 }

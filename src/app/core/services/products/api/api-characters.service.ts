@@ -23,17 +23,8 @@ export class ApiService {
     return this.http.get<ApiCharacters>(
       `${API_CHARACTER_URL}/characters/${id}`);
   }
-  public deleteApiCharacter(id: string): Observable<ApiCharacters> {
-    return this.http.delete<ApiCharacters>(`${API_CHARACTER_URL}/products/${id}`);
-  }
-  public createApiCharacter(body:Person): Observable<ApiCharacters> {
-    return this.http.post<ApiCharacters>(`${API_CHARACTER_URL}/characters`, body);
-  }
- public editApiCharacter(id: string, body: Person): Observable<ApiCharacters> {
-    return this.http.put<ApiCharacters>(
-      `${API_CHARACTER_URL}/characters${id}`,
-      body
-    );
-  }
+ 
+  
+ 
   
 }

@@ -14,6 +14,7 @@ import { CharacterDetailsRoutingModule } from './character-details-routing.modul
     CommonModule,
     CharacterDetailsRoutingModule,
     RouterModule,
+  
    
   ],
 

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './pages/home/home.module';
 import { HomeComponent } from './pages/home/home.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -16,6 +17,6 @@ import { HomeComponent } from './pages/home/home.component';
     declarations: [AppComponent, HomeComponent],
     providers: [],
     bootstrap: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule,HomeModule]
+    imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule,HomeModule,FontAwesomeModule]
 })
 export class AppModule {}

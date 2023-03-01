@@ -40,21 +40,8 @@ export class CharactersService {
       })
     );
   }
-  public deleteCharacter(id: string): Observable<Person> {
-    return this.apiCharacterService.deleteApiCharacter(id).pipe(
-      map((character) => transformCharacters(character))
-    )
-  }
-  public createCharacter(body: Person): Observable<Person> {
-    return this.apiCharacterService.createApiCharacter(body).pipe(
-      map((character) => transformCharacters(character))
-    );
-  }
-  public editCharacter(id: string, body: Person): Observable<Person> {
-    return this.apiCharacterService.editApiCharacter(id, body).pipe(
-      map((character) => transformCharacters(character))
-    );
-  }
+ 
+  
   
   
 }

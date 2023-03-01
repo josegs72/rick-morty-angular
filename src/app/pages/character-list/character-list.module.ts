@@ -12,6 +12,7 @@ import {  NgxPaginationModule } from 'ngx-pagination';
 
 
 
+
 @NgModule({
   declarations: [
     CharacterListComponent,
@@ -27,6 +28,7 @@ import {  NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     SharedModule,
     NgxPaginationModule,
+    
 
   ]
 })

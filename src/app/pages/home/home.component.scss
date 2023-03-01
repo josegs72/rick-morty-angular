@@ -1,31 +1,19 @@
-.home{
+* {
+  margin: 0;
+  padding: 0;
+}
+.home {
+  background-image: url("../../../assets/images/rick1.jpg ");
 
-    .home__title{
-        font-size: 2rem;
-        font-weight: 600;
-        color: #000;
-    }
+  height: 110%;
 
-    .home__subtitle{
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: #000;
-    }
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-    .home__button{
-        background-color: #000;
-        color: #fff;
-        font-size: 1.5rem;
-        font-weight: 600;
-        padding: 1rem 2rem;
-        border-radius: 0.5rem;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-
-        &:hover{
-            background-color: #fff;
-            color: #000;
-        }
-    }
+  display: flex;
+}
+.div__container {
+  height: 751px;
+  width: 100%;
 }
