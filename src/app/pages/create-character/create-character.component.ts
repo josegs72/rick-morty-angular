@@ -1,8 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormControl,FormGroup,Validators,} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { map, of, switchMap } from 'rxjs';
+import { MessageService } from 'src/app/core/services/messages/message.service';
 import { PersonajesService } from 'src/app/core/services/personajes/personajes.service';
 
 import { PersonsService } from 'src/app/core/services/person/persons.service';
@@ -17,12 +16,14 @@ export class CreatePersonComponent implements OnInit {
   public personForm?: FormGroup;
   public urlImg: string = '';
   public isPersonCreated: boolean = false;
+  public formMessage: string = '';
   
 
   constructor(
     private fb: FormBuilder,
+    private messageService: MessageService,
   
-    private activatedRoute: ActivatedRoute,
+   
     private personsService: PersonsService,
     private personajesService: PersonajesService,
   ) {
@@ -40,10 +41,17 @@ export class CreatePersonComponent implements OnInit {
     this.personajesService.createPersonaje(this.personForm?.value).subscribe();
     this.personsService.createPerson(this.personForm?.value).subscribe();
     this.isPersonCreated = true;
-    //mandamos mensaje informativo
+    this.messageService.setMessage('El personaje se a creado con exito');
+    this.formMessage = this.messageService.getMessage();
+    this.personForm?.reset();
+    setTimeout(() => {
+      this.messageService.setMessage('');
+      this.formMessage = this.messageService.getMessage();
+      this.urlImg = ''
+    }, 3000)
   
     
-    this.personForm?.reset();
+   
   
    
     
@@ -52,9 +60,9 @@ export class CreatePersonComponent implements OnInit {
  
   public ngOnInit() {
     this.personForm?.get('avatar')?.valueChanges.subscribe((value) => {
-      //si no hay valor devuelve vacio
+    
       if (!value) {return;}
-      //si hay valor la variable URLIMG coge ese valor
+     
       this.urlImg = value;
       
     })

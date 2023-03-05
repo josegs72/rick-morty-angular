@@ -31,7 +31,7 @@ export class PersonsService {
       map((person) => transformPerson(person))
     )
   }
-  //crear
+
   public createPerson(body: Persons): Observable<Persons> {
     return this.apiPersonsService.createApiPersons(body).pipe(
       map((person) => transformPerson(person))

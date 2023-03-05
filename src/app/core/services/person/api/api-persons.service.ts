@@ -18,16 +18,16 @@ export class ApiPersonsService {
     private http: HttpClient
   ) { }
 
-  //datos de la api brutos
+  
   public getApiPersons(): Observable<ApiPersons[]> {
     return this.http.get<ApiPersons[]>(`${API_PERSONS_URL}/personajes`)
   }
-  //eliminar datos api
+ 
   public deleteApiPersons(id: string): Observable<ApiPersons> {
     return this.http.delete<ApiPersons>(`${API_PERSONS_URL}/personajes/${id}`)
   }
 
-  //crear nuevo
+ 
   public createApiPersons(body: Persons): Observable<ApiPersons> {
     return this.http.post<ApiPersons>(`${API_PERSONS_URL}/person`, body)
   }

@@ -4,7 +4,7 @@ import { Component,OnInit} from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
-//import { characters } from 'src/app/models/characters.data';
+
 
 @Component({
   selector: 'app-character-details',

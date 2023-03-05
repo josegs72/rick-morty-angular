@@ -14,7 +14,7 @@ export class PersonajesService {
     private apiMyPersonajeService: ApiMyPersonService
   ) { }
 
-  //traer datos filtrados
+ 
   public getPersonaje(): Observable<Personajes[]> {
     return this.apiMyPersonajeService.getApiPerson().pipe(
       map((personajes: ApiPersonajes[]) => {
@@ -22,14 +22,14 @@ export class PersonajesService {
       })
     )
   }
-  //eliminar un hijo
+ 
   public deletePersonaje(id: string): Observable<Personajes> {
     return this.apiMyPersonajeService.deleteApiPerson(id).pipe(
       map((personaje) => transformPersonaje(personaje))
     )
   }
 
-  //crear 
+
   public createPersonaje(body: Personajes): Observable<Personajes> {
     return this.apiMyPersonajeService.createApiPerson(body).pipe(
       map((personaje) => transformPersonaje(personaje))
