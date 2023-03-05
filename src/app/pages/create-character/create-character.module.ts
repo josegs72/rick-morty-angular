@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CreateCharacterRoutingModule } from './create-character-routing.module';
-import { CreateCharacterComponent } from './create-character.component';
+import { CreatePersonRoutingModule } from './create-character-routing.module';
+import { CreatePersonComponent } from './create-character.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
@@ -10,11 +10,11 @@ import { RouterModule} from '@angular/router';
 
 
 @NgModule({
-  declarations: [CreateCharacterComponent],
+  declarations: [CreatePersonComponent],
  
   imports: [
     CommonModule,
-    CreateCharacterRoutingModule,
+    CreatePersonRoutingModule,
     RouterModule,
 
     ReactiveFormsModule,

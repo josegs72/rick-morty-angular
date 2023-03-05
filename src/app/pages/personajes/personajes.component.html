@@ -1,0 +1,16 @@
+
+
+<h2
+    class="personajes__h1"
+>{{ "ESTOS SON TUS PERSONAJES"  }}</h2>
+
+<div
+    class="personajes__container"
+>
+    <app-personajes-view
+        *ngFor="let personaje of personajes"
+        [personaje]="personaje"
+        (onRemove)="removePersonaje(personaje.id)"
+    ></app-personajes-view>
+</div>
+

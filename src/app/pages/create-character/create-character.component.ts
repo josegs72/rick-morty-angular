@@ -1,9 +1,11 @@
+
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormControl,FormGroup,Validators,} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, of, switchMap } from 'rxjs';
-import { Person } from 'src/app/core/services/products/character.models';
-import { CharactersService } from 'src/app/core/services/products/character.service';
+import { PersonajesService } from 'src/app/core/services/personajes/personajes.service';
+
+import { PersonsService } from 'src/app/core/services/person/persons.service';
 
 
 @Component({
@@ -11,68 +13,55 @@ import { CharactersService } from 'src/app/core/services/products/character.serv
   templateUrl: './create-character.component.html',
   styleUrls: ['./create-character.component.scss'],
 })
-export class CreateCharacterComponent /*implements OnInit*/ {
-  public productForm?: FormGroup;
+export class CreatePersonComponent implements OnInit {
+  public personForm?: FormGroup;
   public urlImg: string = '';
-  public canEdit: boolean = false;
-  public characterId?: string;
+  public isPersonCreated: boolean = false;
   
 
   constructor(
     private fb: FormBuilder,
   
     private activatedRoute: ActivatedRoute,
-    private characterService: CharactersService,
-    private router: Router
+    private personsService: PersonsService,
+    private personajesService: PersonajesService,
   ) {
-    this.activatedRoute.queryParams
-      .pipe(
-        map((queryParams) => queryParams['id']),
-        switchMap((id: string) => {
-          if (!id) {
-            
-            return of(undefined);
-          } else {
-            this.characterId = id;
-            return this.characterService.getCharactersDetail(id);
-          }
-        })
-      )
-      .subscribe((character?: Person) => {
-        this.canEdit = !!character;
-        this.createNewForm(character);
-      });
+    
+    this.personForm = this.fb.group({
+      name: new FormControl('', [Validators.required, Validators.pattern('[a-z A-Z]*')]),
+      surname: new FormControl('', [Validators.required, Validators.pattern('[a-z A-Z]*')]),
+      avatar: new FormControl('', [Validators.required]),
+      
+    })
   }
 
- /* public ngOnInit() {
-    this.productForm?.get('image')?.valueChanges.subscribe((value) => {
-      if (!value) {
-        return;
-      }
+ 
+  savePersonaje() {
+    this.personajesService.createPersonaje(this.personForm?.value).subscribe();
+    this.personsService.createPerson(this.personForm?.value).subscribe();
+    this.isPersonCreated = true;
+    //mandamos mensaje informativo
+  
+    
+    this.personForm?.reset();
+  
+   
+    
+  }
+
+ 
+  public ngOnInit() {
+    this.personForm?.get('avatar')?.valueChanges.subscribe((value) => {
+      //si no hay valor devuelve vacio
+      if (!value) {return;}
+      //si hay valor la variable URLIMG coge ese valor
       this.urlImg = value;
-      this.messageService.setMessage(value);
-    });
+      
+    })
+  }
+  
+}
+
   
 
-    this.productForm?.get('image')?.statusChanges.subscribe((status) => {
-      console.log(status);
-    });
-  }
-  */
-  public createNewForm(character?: Person) {
-    this.productForm = this.fb.group({
-      name: new FormControl(character?.name || '', [Validators.required]),
-      color: new FormControl(character?.gender|| '', [Validators.required]),
-      price: new FormControl(character?.type || '', [
-        Validators.required,
-        Validators.maxLength(6),
-      ]),
-      description: new FormControl(character?.status || '', [
-        Validators.required,
-      ]),
-      image: new FormControl(character?.image || '', [Validators.required]),
-      
-    });
-  }
-
-}
+  

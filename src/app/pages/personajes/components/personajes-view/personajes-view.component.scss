@@ -1,0 +1,34 @@
+.container{
+    margin-right: 24px;
+    border: 1px solid lightgrey;
+    box-shadow: 3px 3px 5px 3px lightgrey;
+    margin-bottom: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+    width: 250px;  
+    border-radius: 40px;
+    background-color: rgb(171, 178, 176);
+    height: 400px;
+    &__div{
+        height: 300px;
+    }
+    &__p {
+        text-align: center;
+    }
+}
+.img{
+    height: 200px;
+    border-radius: 40px;
+    margin-top: 10px;
+    width: 200px;
+}
+.button-el{
+    margin-top: 10px;
+    height: 35px;
+    border-radius: 25px;
+  
+    background-color: black;
+    color: antiquewhite;
+    cursor: pointer;
+}

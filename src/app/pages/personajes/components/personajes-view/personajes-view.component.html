@@ -1,0 +1,23 @@
+<div
+    *ngIf="personaje"
+    class="container"
+>
+    <div>
+        <div
+            class="container__div1"
+        >
+            <img class="img" src="{{ personaje.avatar }}">
+        </div>
+    </div>
+    <div
+        class="container__p"
+    >
+        <p>{{ personaje.surname }}</p>
+        <p>{{ personaje.name}}</p>
+    </div>
+    <button
+        class="button-el"
+        (click)="removePersonajes()"
+    >{{ "Eliminar" }}</button>
+
+</div>

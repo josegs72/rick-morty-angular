@@ -44,3 +44,41 @@
   float: left;
   margin-left: 10px;
 }
+.register{
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    &__form{
+        margin-top: 20px;
+    }
+    &__form_input{
+        margin-left: 20px;
+        border-radius: 50px;
+        height: 35px;
+        text-align: center;
+    }
+    &__form_error{
+        font-weight: bold;
+        font-family: cursive;
+        color: red;
+    }
+    &__form_label{
+        font-family: cursive;
+        font-weight: bold;
+    }
+    &__button{
+        margin-left: 150px;
+        margin-top: 20px;
+        background-color: black;
+        color: aliceblue;
+        border-radius: 40px;
+        width: 80px;
+        height: 25px;
+        
+    }
+    &__button:hover{
+        color: lawngreen;
+        cursor: pointer;
+    }
+}

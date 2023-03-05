@@ -1,14 +1,14 @@
+import { PersonajesComponent } from './personajes.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreatePersonComponent } from './create-character.component';
 
 const routes: Routes = [{
   path: '',
-  component: CreatePersonComponent,
+  component: PersonajesComponent
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CreatePersonRoutingModule { }
+export class PersonajesRoutingModule { }

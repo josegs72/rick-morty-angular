@@ -21,6 +21,12 @@ const routes: Routes = [
   path: 'create-character',loadChildren: () => import('./pages/create-character/create-character.module').then(m => m.CreateCharacterModule)
   },
   {
+  path: 'personajes',
+  loadChildren: () => import('./pages/personajes/personajes.module').then(m => m.PersonajesModule)
+},
+
+
+  {
     path:'**', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
   },
 

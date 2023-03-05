@@ -1,0 +1,27 @@
+<div
+    *ngIf="personajes"
+    class="container"
+>
+    <div
+        class="person__container"
+    >
+        <div
+            class="container__div"
+        >
+            <img class="img" src="{{ personaje?.avatar}}">
+        </div>
+        <div
+            class="container__p"
+        >
+    
+            <p>{{ personaje?.surname }}</p>
+            <p>{{ personaje?.name}}</p>
+        </div>
+        <button
+            (click)="removePersonaje()"
+            class="button"
+        ><i class="fa-solid fa-face-smile-wink"></i></button>
+    </div>
+    
+
+</div>

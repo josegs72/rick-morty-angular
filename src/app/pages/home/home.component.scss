@@ -5,15 +5,20 @@
 .home {
   background-image: url("../../../assets/images/rick1.jpg ");
 
-  height: 110%;
+  height: 810px;
 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .div__container {
   height: 751px;
   width: 100%;
+  flex-direction: calc(100% - 100px);
+  
 }

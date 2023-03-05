@@ -7,7 +7,7 @@ import { ApiPersons } from './api-persons.models';
 
 
 
-const API_PERSONS_URL = 'https://63f3b7e3fe3b595e2ee8174b.mockapi.io/api/v2';
+const API_PERSONS_URL = 'https://640460f780d9c5c7bac66d40.mockapi.io';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +20,15 @@ export class ApiPersonsService {
 
   //datos de la api brutos
   public getApiPersons(): Observable<ApiPersons[]> {
-    return this.http.get<ApiPersons[]>(`${API_PERSONS_URL}/persons`)
+    return this.http.get<ApiPersons[]>(`${API_PERSONS_URL}/personajes`)
   }
   //eliminar datos api
   public deleteApiPersons(id: string): Observable<ApiPersons> {
-    return this.http.delete<ApiPersons>(`${API_PERSONS_URL}/persons/${id}`)
+    return this.http.delete<ApiPersons>(`${API_PERSONS_URL}/personajes/${id}`)
   }
 
   //crear nuevo
   public createApiPersons(body: Persons): Observable<ApiPersons> {
-    return this.http.post<ApiPersons>(`${API_PERSONS_URL}/persons`, body)
+    return this.http.post<ApiPersons>(`${API_PERSONS_URL}/person`, body)
   }
 }

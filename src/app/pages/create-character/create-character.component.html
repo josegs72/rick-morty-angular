@@ -1,0 +1,98 @@
+
+<div
+    class="register"
+>
+    
+    <form 
+        class="register__form"
+        *ngIf="personForm"
+        name="person"
+        [formGroup]="personForm"
+        
+        (submit)="savePersonaje()"
+        >
+
+        <div
+            class="register__form"
+        >
+            <label class="register__form_label" for="name">{{"INSERTA NOMBRE" }}</label>
+            <input
+                class="register__form_input" 
+                placeholder="nombre"
+                name="name"
+                formControlName="name"
+            >
+            <p
+                class="register__form_error"
+                *ngIf="!personForm.get('name')?.valid 
+                    && personForm.get('name')?.touched
+                    && personForm.get('name')?.errors?.['required']"
+            >{{"EL NOMBRE ES REQUERIDO" }}</p>
+            <p
+                class="register__form_error"
+                *ngIf="!personForm.get('name')?.valid 
+                    && personForm.get('name')?.touched
+                    && personForm.get('name')?.errors?.['pattern']"
+            >{{"TU NO PUEDES PONER NUMEROS" }}</p>
+        </div>
+        <div
+            class="register__form"
+        >
+            <label class="register__form_label" for="surname">{{"INSERTA APELLIDO" }}</label>
+            <input
+                class="register__form_input"
+                placeholder="apellido"
+                name="surname"
+                formControlName="surname"
+            >
+            <p
+                class="register__form_error"
+                *ngIf="!personForm.get('surname')?.valid 
+                    && personForm.get('surname')?.touched
+                    && personForm.get('surname')?.errors?.['required']"
+            >{{"EL APELLIDO ES REQUERIDO" }}</p>
+            <p
+                class="register__form_error"
+                *ngIf="!personForm.get('surname')?.valid 
+                    && personForm.get('surname')?.touched
+                    && personForm.get('surname')?.errors?.['pattern']"
+            >{{"TU NO PUEDES PONER NUMEROS"}}</p>
+        </div>
+        <div
+            class="register__form"
+        >
+            <label class="register__form_label" for="avatar">{{"INSERTA TU FOTO"}}</label>
+            <input
+                class="register__form_input"
+                placeholder="imagen"
+                name="avatar"
+                formControlName="avatar"
+            >
+            <p
+                class="register__form_error"
+                *ngIf="!personForm.get('avatar')?.valid && personForm.get('avatar')?.touched"
+            >{{"FOTO ES REQUERIDA" }}</p>
+        </div>
+        <button
+            [disabled]="!personForm.valid"
+            type="submit"
+            class="register__button"
+        >{{"REGISTRAR"}}</button>
+    </form>
+</div>
+<div
+    class="avatar__preview"
+>
+    <div
+            class="avatar__preview_div"
+            *ngIf="urlImg !== ''"
+            [ngStyle]="{
+                'background-image': 'url(' + urlImg+ ')'
+            }"
+        >
+    
+            <p
+                class="avatar__preview_p"
+            >{{"ESTA ES TU FOTOGRAFIA DE INSCRIPCION" }}</p>
+    </div>
+</div>

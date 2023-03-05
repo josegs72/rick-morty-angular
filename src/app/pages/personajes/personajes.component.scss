@@ -1,0 +1,28 @@
+.personajes__container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 24px;
+    background-color: rgb(82, 82, 80);
+  
+    
+}
+.personajes__h1{
+    text-align: center;
+    padding: 20px;
+    font-family: Tahoma;
+    background-color: blanchedalmond;
+}
+.button{
+    border-radius: 25px;
+    width: 100px;
+    cursor: pointer;
+
+}
+.container__button{
+    background-color: blanchedalmond;
+    text-align: end;
+}

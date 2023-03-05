@@ -2,7 +2,7 @@ import { ApiPersonajes } from './api/api-personajes.model';
 import { Observable, map } from 'rxjs';
 import { ApiMyPersonService } from './api/api-personajes.service';
 import { Injectable } from '@angular/core';
-import { personajes } from './personajes.model';
+import { Personajes } from './personajes.model';
 import { transformPersonaje } from './personajes.helper';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class PersonajesService {
   ) { }
 
   //traer datos filtrados
-  public getPersonaje(): Observable<personajes[]> {
+  public getPersonaje(): Observable<Personajes[]> {
     return this.apiMyPersonajeService.getApiPerson().pipe(
       map((personajes: ApiPersonajes[]) => {
         return personajes.map((personaje) => transformPersonaje(personaje))
@@ -23,14 +23,14 @@ export class PersonajesService {
     )
   }
   //eliminar un hijo
-  public deletePersonaje(id: string): Observable<personajes> {
+  public deletePersonaje(id: string): Observable<Personajes> {
     return this.apiMyPersonajeService.deleteApiPerson(id).pipe(
       map((personaje) => transformPersonaje(personaje))
     )
   }
 
   //crear 
-  public createPersonaje(body: personajes): Observable<personajes> {
+  public createPersonaje(body: Personajes): Observable<Personajes> {
     return this.apiMyPersonajeService.createApiPerson(body).pipe(
       map((personaje) => transformPersonaje(personaje))
     )

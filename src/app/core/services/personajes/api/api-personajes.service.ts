@@ -1,11 +1,11 @@
-import { personajes } from '../personajes.model';
+import { Personajes } from '../personajes.model';
 import { ApiPersonajes } from './api-personajes.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 //url de la api
-const API_PERSONAJE_URL = 'https://run.mocky.io/v3/3c59aae9-15d5-4087-9f42-02c9e6413247';
+const API_PERSONAJE_URL = 'https://640460f780d9c5c7bac66d40.mockapi.io';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class ApiMyPersonService {
   }
 
   //crear nuevo 
-  public createApiPerson(body: personajes): Observable<ApiPersonajes> {
+  public createApiPerson(body: Personajes): Observable<ApiPersonajes> {
     return this.http.post<ApiPersonajes>(`${API_PERSONAJE_URL}/personajes`, body)
   }
 }
